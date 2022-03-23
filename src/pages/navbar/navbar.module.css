@@ -1,46 +1,64 @@
-:root{
-    --nav-background-color: #403a3ab8;
-    --navColor:#111;
-    --navHeight:70px;
-    --navWidth:100%;
-    --navDisplay:flex;
-    
+:root {
+  --nav-background-color: #403a3ab8;
+  --navColor: #111;
+  --navHeight: 70px;
+  --navWidth: 100%;
+  --navDisplay: flex;
+  --homeHeaderBackground: transparent;
 }
-#navbarBlock{
-    /* //for video background */
-    position: absolute;
-    z-index: 1;
-    color: var(--navColor);
-    height: var(--navHeight);
-    width: var(--navWidth);
+#navbarBlock {
+  /* //for video background */
+  /* position: absolute;
+  z-index: 1; */
+  color: var(--navColor);
+  height: var(--navHeight);
+  width: var(--navWidth);
+  background-color: var(--nav-background-color);
 }
 
-.navbarArticle{
-    width: 85%;
-    height: var(--navHeight);
-    display: var(--navDisplay);
-    margin: 0 auto;
-    align-items: center;
-    justify-content: space-between;
-    color: red; 
+.homeClass {
+  position: absolute;
+  z-index: 1;
+  background-color: var(--homeHeaderBackground) !important;
 }
-.logoBlockAnchor{
-    justify-content: center;
-    display: flex;
-    color: red;
-    text-transform: capitalize;
-    font-style: revert;
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 1.2px;
-    font-size: 1.5rem;
-    align-items: center;
+
+.navbarArticle {
+  width: 85%;
+  height: var(--navHeight);
+  display: var(--navDisplay);
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  color: red;
 }
-.logoBlockSpanIcon{
+.logoBlockAnchor {
+  justify-content: center;
+  display: flex;
+  color: red;
+  text-transform: capitalize;
+  font-style: revert;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  font-size: 1.5rem;
+  align-items: center;
+}
+.logoBlockSpanIcon {
+  color: #fff;
+  padding: 0;
+  font-size: 33px;
+  margin: 0 12px 0 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbarUl {
+  display: flex;
+  list-style: none;
+}
+.navbarAnchor{
     color: #fff;
-    padding: 0;
-    font-size: 33px;
-    margin: 0 12px 0 0 ;
-    display: flex;
-    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    
 }

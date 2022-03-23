@@ -10,3 +10,7 @@ body {
     color: #fff;
     font-family: 'Poppins', sans-serif;
 }
+/* //22/3 */
+.active{
+  color: red;
+}
