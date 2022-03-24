@@ -3,13 +3,23 @@ import { toast } from "react-toastify";
 import Styles from "../../components/authComponent/auth.module.css";
 //fire base
 import { auth } from "../../api/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  updateProfile,
+} from "firebase/auth";
+import { Link } from "react-router-dom";
+
+//after sign up navigate to sigin
+import { useNavigate } from "react-router-dom";
 const SignUp = () => {
   let [username, setUsername] = useState("");
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [confirmPassword, setConfirmPassword] = useState("");
   let [loading, setLoading] = useState(false);
+
+  let navigate = useNavigate();
 
   //to fetch data on submitting
   let handleSubmit = async e => {
@@ -28,6 +38,19 @@ const SignUp = () => {
         );
         toast.success("sucessfully user created");
         console.log(userData);
+        //for email verification
+        let confirmationMail = `Verification mail has been sent to ${email}`;
+
+        let user = userData.user;
+        sendEmailVerification(user);
+        //for update profile
+        updateProfile(user, {
+          photoURL:
+            "http://assets.stickpng.com/images/585e4bcdcb11b227491c3396.png",
+          displayName: username,
+        });
+        navigate("/signin");
+        toast.info(confirmationMail);
       }
     } catch (error) {
       console.log(error);
@@ -97,9 +120,18 @@ const SignUp = () => {
               }}
             />
           </div>
+
+          <div className="form-group">
+            <p className={Styles.gotoAuth}>
+              Already have a account
+              <Link to="/signin" className={Styles.gotoAuthLink}>
+                SignIn
+              </Link>
+            </p>
+          </div>
           <div>
             <button className={Styles.btn}>
-              {loading ? "loading.." : "Sign Up"}
+              {loading ? "loading..." : "Sign Up"}
             </button>
           </div>
         </form>

@@ -5,32 +5,22 @@ import Navbar from "./pages/navbar/Navbar";
 import StreamBasedRoutes from "./routes/StreamBasedRoutes";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import AuthProvider from "./api/AuthContext";
 
 const App = () => {
   return (
-    <Router>
-      <header>
-        <Navbar />
-      </header>
-      <main>
-        <ToastContainer />
-        <StreamBasedRoutes />
-      </main>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <header>
+          <Navbar />
+        </header>
+        <main>
+          <ToastContainer />
+          <StreamBasedRoutes />
+        </main>
+      </Router>
+    </AuthProvider>
   );
 };
 
 export default App;
-
-// import React from "react";
-// import SignIn from "./components/authComponent/SignIn";
-
-// const App = () => {
-//   return (
-//     <div>
-//       <SignIn />
-//     </div>
-//   );
-// };
-
-// export default App;

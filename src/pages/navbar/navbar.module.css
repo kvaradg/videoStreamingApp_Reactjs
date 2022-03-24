@@ -56,9 +56,24 @@
   display: flex;
   list-style: none;
 }
-.navbarAnchor{
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    
+.navbarAnchor {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+.navbarIconLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  color: #fff;
+  text-decoration: none;
+}
+.navbarIcon {
+  margin: 1px 8px 0 0;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border-radius: 100%;
 }
