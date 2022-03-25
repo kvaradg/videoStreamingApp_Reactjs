@@ -1,27 +1,52 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import Styles from "../../pages/navbar/navbar.module.css";
 //use context
 import { AuthContext } from "../../api/AuthContext";
+import { FaUser} from "react-icons/fa"
 const Menu = () => {
   let USER = useContext(AuthContext);
-  console.log(USER);
+  // console.log(USER);
+
+  // FOR DROP DOWN MENU
+  let [toggle, setToggle] = useState(false);
+  let toggleRef = useRef();
+
+  let dropDownMenu = (e) => {
+    e.preventDefault();
+    setToggle(!toggle);
+  }
+  
+  
 
   let AuthenticatedUser = () => {
     return (
       <>
-        <li>
+        <li onClick={dropDownMenu}>
           <NavLink to={{ pathname: "/" }} className={Styles.navbarIconLink}>
             <span style={{ left: "0px", position: "relative" }}>
               <img
-                src="https://cdn-icons-png.flaticon.com/512/219/219983.png"
+                src={USER.photoURL}
                 alt=""
                 className={Styles.navbarIcon}
               />
             </span>
-            <span>{USER.displayName}</span>
+            <span>Profile</span>
           </NavLink>
-          
+          <div
+            className={toggle === true ? "dropDown show" : "dropDown hide"}
+            ref={toggleRef}
+            // style={toggle ? { display: "block"} : { display: "none" }}
+          >
+            <ul>
+              <li>
+                <NavLink to="/myprofile">
+                  <FaUser />
+                  My Profile
+                </NavLink>
+              </li>
+            </ul>
+          </div>
         </li>
         <li>
           <NavLink to={{ pathname: "/" }} className={Styles.navbarAnchor}>
@@ -58,18 +83,20 @@ const Menu = () => {
   };
   
   return (
-    <ul className={Styles.navbarUl}>
-      <li>
-        <NavLink
-          to={{ pathname: "/" }}
-          activeclassName="active"
-          className={Styles.navbarAnchor}
-        >
-          Home
-        </NavLink>
-      </li>
-      {USER ? <AuthenticatedUser /> : <GuestUser />}
-    </ul>
+    <div className={Styles.menu}>
+      <ul>
+        <li>
+          <NavLink
+            to={{ pathname: "/" }}
+            activeclassName="active"
+            className={Styles.navbarAnchor}
+          >
+            Home
+          </NavLink>
+        </li>
+        {USER ? <AuthenticatedUser /> : <GuestUser />}
+      </ul>
+    </div>
   );
 };
 

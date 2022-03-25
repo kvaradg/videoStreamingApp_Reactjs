@@ -9,6 +9,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { Link } from "react-router-dom";
+import md5 from "md5";
 
 //after sign up navigate to sigin
 import { useNavigate } from "react-router-dom";
@@ -45,8 +46,7 @@ const SignUp = () => {
         sendEmailVerification(user);
         //for update profile
         updateProfile(user, {
-          photoURL:
-            "http://assets.stickpng.com/images/585e4bcdcb11b227491c3396.png",
+          photoURL: `https://www.gravatar.com/avatar/${md5(email)}q=identicon`,
           displayName: username,
         });
         navigate("/signin");

@@ -21,13 +21,12 @@ const PreLoadedVideo = () => {
   return (
     <section className={Styles.videoBlock}>
       <div className={Styles.video_desc}>
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid,
-          optio.
-        </h2>
+        <h2>Online Video Streaming App</h2>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
-          repellendus illo adipisci harum dolorem? Ratione ipsam{" "}
+          Stream Base is one of the most popular and the best video streaming apps.
+          You can subscribe to its plans and watch TV serials, movies, etc., on
+          your device. Various devices, such as laptops, tabs, smartphones, or
+          smart TV.
         </p>
 
         <p>

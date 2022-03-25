@@ -52,10 +52,12 @@
   align-items: center;
 }
 
-.navbarUl {
-  display: flex;
+.menu > ul {
+ display: flex;
   list-style: none;
+  align-items: center;
 }
+
 .navbarAnchor {
   color: #fff;
   text-decoration: none;
@@ -77,3 +79,5 @@
   position: relative;
   border-radius: 100%;
 }
+
+/* //DROP DOWN CSS IN global.css */
