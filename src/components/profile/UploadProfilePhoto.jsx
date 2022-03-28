@@ -12,6 +12,9 @@ import {
 import { updateProfile } from "firebase/auth";
 import { AuthContext } from "./../../api/AuthContext";
 import MainProfile from "./MainProfile";
+
+
+
 const UploadProfilePhoto = () => {
   let [loading, setLoading] = useState(false);
   let [photo, setPhoto] = useState("");

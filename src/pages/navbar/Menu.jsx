@@ -3,7 +3,10 @@ import { NavLink } from "react-router-dom";
 import Styles from "../../pages/navbar/navbar.module.css";
 //use context
 import { AuthContext } from "../../api/AuthContext";
-import { FaUser} from "react-icons/fa"
+import { FaUser } from "react-icons/fa";
+import { toast } from "react-toastify";
+import { signOut } from "firebase/auth";
+import { auth } from "../../api/firebase";
 const Menu = () => {
   let USER = useContext(AuthContext);
   // console.log(USER);
@@ -12,12 +15,17 @@ const Menu = () => {
   let [toggle, setToggle] = useState(false);
   let toggleRef = useRef();
 
-  let dropDownMenu = (e) => {
+  let dropDownMenu = e => {
     e.preventDefault();
     setToggle(!toggle);
-  }
-  
-  
+  };
+
+  //SIGN OUT FUNCTIONALITY
+  let signout = async () => {
+    await signOut(auth);
+    toast.success("Sucessfully Signed Out");
+    window.location.assign("/signin");
+  };
 
   let AuthenticatedUser = () => {
     return (
@@ -25,11 +33,7 @@ const Menu = () => {
         <li onClick={dropDownMenu}>
           <NavLink to={{ pathname: "/" }} className={Styles.navbarIconLink}>
             <span style={{ left: "0px", position: "relative" }}>
-              <img
-                src={USER.photoURL}
-                alt=""
-                className={Styles.navbarIcon}
-              />
+              <img src={USER.photoURL} alt="" className={Styles.navbarIcon} />
             </span>
             <span>Profile</span>
           </NavLink>
@@ -49,9 +53,9 @@ const Menu = () => {
           </div>
         </li>
         <li>
-          <NavLink to={{ pathname: "/" }} className={Styles.navbarAnchor}>
+          <a href="#" onClick={signout} className={Styles.navbarAnchor}>
             Signout
-          </NavLink>
+          </a>
         </li>
       </>
     );
@@ -81,7 +85,7 @@ const Menu = () => {
       </>
     );
   };
-  
+
   return (
     <div className={Styles.menu}>
       <ul>

@@ -57,6 +57,7 @@ const SignIn = () => {
       <article className={Styles.authArticle}>
         <h1 style={{ padding: "20px 0" }}>Sign In</h1>
         <form className={Styles.formBlock} onSubmit={handleSubmit}>
+          <Link to="/phone-auth">Sign Up with phone number</Link>
           <div className="form-group">
             <label htmlFor="" className={Styles.formLabel}>
               Email :
@@ -96,6 +97,17 @@ const SignIn = () => {
               New to StreamBase
               <Link to="/signup" className={Styles.gotoAuthLink}>
                 Signup
+              </Link>
+            </p>
+            {/* //clear property clears float property */}
+            <p
+              style={{
+                clear: "both",
+                padding: "3px 0",
+              }}
+            >
+              <Link to="/password-reset" className={Styles.gotoAuthLink}>
+                Forgot Password
               </Link>
             </p>
           </div>

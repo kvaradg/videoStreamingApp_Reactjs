@@ -75,3 +75,15 @@
 .gotoAuthLink {
   color: red;
 }
+
+/* //CSS for Forgot password */
+.gotoAuthLink {
+  color: red;
+  padding: 0 11px;
+  font-size: 13px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+.gotoAuthLink:hover {
+  color: #fff;
+}
