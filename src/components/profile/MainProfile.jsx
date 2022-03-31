@@ -8,7 +8,7 @@ const MainProfile = () => {
   return (
     <div>
       <div>
-        {location.pathname === "/myprofile" ? <MyAccount /> : <Outlet />}
+        {location.pathname === "/user" ? <MyAccount /> : <Outlet />}
       </div>
     </div>
   );

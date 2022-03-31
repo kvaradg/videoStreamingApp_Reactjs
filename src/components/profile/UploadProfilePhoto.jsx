@@ -101,7 +101,7 @@ const UploadProfilePhoto = () => {
           <div className="form-group">
             <p className={Styles.gotoAuth}>
               Go back to Home Page
-              <Link to="/myprofile" className={Styles.gotoAuthLink}>
+              <Link to="/user" className={Styles.gotoAuthLink}>
                 goback
               </Link>
             </p>

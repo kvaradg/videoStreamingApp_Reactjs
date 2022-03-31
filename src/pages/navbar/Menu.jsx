@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import Styles from "../../pages/navbar/navbar.module.css";
 //use context
 import { AuthContext } from "../../api/AuthContext";
-import { FaUser } from "react-icons/fa";
+import { FaUser , FaUpload} from "react-icons/fa";
 import { toast } from "react-toastify";
 import { signOut } from "firebase/auth";
 import { auth } from "../../api/firebase";
@@ -23,6 +23,8 @@ const Menu = () => {
   //SIGN OUT FUNCTIONALITY
   let signout = async () => {
     await signOut(auth);
+    //remove toke after logout
+    window.sessionStorage.removeItem("TOKEN")
     toast.success("Sucessfully Signed Out");
     window.location.assign("/signin");
   };
@@ -30,6 +32,18 @@ const Menu = () => {
   let AuthenticatedUser = () => {
     return (
       <>
+        <li style={{ padding: "0 10px" }}>
+          <NavLink
+            to={{ pathname: "/user/movie" }}
+            className={Styles.navbarIconLink}
+          >
+            <span style={{ padding: " 0 10px" }}>
+              <FaUpload />
+            </span>
+            <span>Movie</span>
+          </NavLink>
+        </li>
+
         <li onClick={dropDownMenu}>
           <NavLink to={{ pathname: "/" }} className={Styles.navbarIconLink}>
             <span style={{ left: "0px", position: "relative" }}>
@@ -44,7 +58,7 @@ const Menu = () => {
           >
             <ul>
               <li>
-                <NavLink to="/myprofile">
+                <NavLink to="/user">
                   <FaUser />
                   My Profile
                 </NavLink>

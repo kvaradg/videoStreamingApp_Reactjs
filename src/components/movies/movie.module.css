@@ -1,0 +1,100 @@
+#authSection {
+  background-color: #333333ba;
+}
+.authArticle {
+  width: 80%;
+  margin: 0px auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+}
+.formBlock {
+  background-color: #111;
+  padding: 20px;
+  border-bottom: 2px solid red;
+  border-radius: 6px;
+  width: 80%;
+  display:flex;
+  justify-content: space-between;
+}
+.formLabel {
+  display: block;
+  padding: 5px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.formControl {
+  width: 100%;
+  border-radius: 4px;
+  background: transparent;
+  border: 1px solid #444;
+  padding: 10px 0;
+  margin: 10px 0;
+  outline: invert;
+  color: #fff;
+}
+
+.divSection{
+    width: 48%;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px 20px;
+  color: #fff;
+  cursor: pointer;
+  margin: 10px 0;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: capitalize;
+  background-color: red;
+  border: 1px solid red;
+  transform: translate(0%);
+  transition: ease all 0.7s;
+}
+.btn:hover {
+  background-color: #111;
+  border: 1px solid red;
+  transform: translate(0.2%);
+}
+
+.eyeIcon {
+  position: relative;
+}
+.eyeIconSVG {
+  position: absolute;
+  left: -32px;
+  top: 3px;
+  font-size: 20px;
+  color: red;
+}
+
+.gotoAuth {
+  font-size: 13px;
+  padding: 10px 4px;
+  float: right;
+}
+.gotoAuthLink {
+  color: red;
+}
+
+/* //CSS for Forgot password */
+.gotoAuthLink {
+  color: red;
+  padding: 0 11px;
+  font-size: 13px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+.gotoAuthLink:hover {
+  color: #fff;
+}
+
+.checked{
+    color: orange;
+}
